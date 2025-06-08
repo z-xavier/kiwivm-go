@@ -87,23 +87,23 @@ const (
 
 type Suspensions struct {
 	// Case ID, needed to unsuspend the service via "unsuspend" API call
-	RecordId int `json:"record_id"`
+	RecordId int64 `json:"record_id"`
 	// Type of abuse
 	Flag   string `json:"flag"`
 	IsSoft IsSoft `json:"is_soft"`
 	// Detailed abuse report ID (see below)
 	EvidenceRecordId string `json:"evidence_record_id"`
 	// Each abuse incident increases total_abuse_points counter
-	AbusePoints int `json:"abuse_points"`
+	AbusePoints int64 `json:"abuse_points"`
 }
 
 type GetSuspensionDetailsRsp struct {
 	// Number of times service was suspended in current calendar year
-	SuspensionCount int `json:"suspension_count"`
+	SuspensionCount int64 `json:"suspension_count"`
 	// Total abuse points accumulated in current calendar year
-	TotalAbusePoints int `json:"total_abuse_points"`
+	TotalAbusePoints int64 `json:"total_abuse_points"`
 	// Maximum abuse points allowed by plan in a calendar year
-	MaxAbusePoints int `json:"max_abuse_points"`
+	MaxAbusePoints int64 `json:"max_abuse_points"`
 	// array of all outstanding issues along with supporing evidence of abuse. See example below.
 	Suspensions []*Suspensions `json:"suspensions"`
 	// Full text of the complaint or more details about the issue
@@ -118,7 +118,7 @@ func (c *Client) GetSuspensionDetails(ctx context.Context) (*GetSuspensionDetail
 
 type PolicyViolations struct {
 	// Case ID, for resolvePolicyViolation
-	RecordId int `json:"record_id"`
+	RecordId int64 `json:"record_id"`
 	// Unix timestamp when record was created
 	Timestamp int64 `json:"timestamp"`
 	// Service will be suspended if not resolved by this time
@@ -127,16 +127,16 @@ type PolicyViolations struct {
 	Flag   string `json:"flag"`
 	IsSoft IsSoft `json:"is_soft"`
 	// Each abuse incident increases total_abuse_points counter
-	AbusePoints int `json:"abuse_points"`
+	AbusePoints int64 `json:"abuse_points"`
 	// Details of violation (text)
 	EvidenceData string `json:"evidence_data"`
 }
 
 type GetPolicyViolationsRsp struct {
 	// Total abuse points accumulated in current calendar year
-	TotalAbusePoints int `json:"total_abuse_points"`
+	TotalAbusePoints int64 `json:"total_abuse_points"`
 	// Maximum abuse points allowed by plan in a calendar year
-	MaxAbusePoints int `json:"max_abuse_points"`
+	MaxAbusePoints int64 `json:"max_abuse_points"`
 	// array of all outstanding issues along with supporing evidence of abuse. See example below.
 	PolicyViolations []*PolicyViolations `json:"policy_violations"`
 	Error            int                 `json:"error"`
@@ -180,10 +180,10 @@ func (c *Client) ResolvePolicyViolation(ctx context.Context, req *ResolvePolicyV
 
 type GetRateLimitStatusRsp struct {
 	// Number of "points" available to use in the current 15-minute interval
-	RemainingPoints15Min int `json:"remaining_points_15min"`
+	RemainingPoints15Min int64 `json:"remaining_points_15min"`
 	// Number of "points" available to use in the current 24-hour interval
-	RemainingPoints24H int `json:"remaining_points_24h"`
-	Error              int `json:"error"`
+	RemainingPoints24H int64 `json:"remaining_points_24h"`
+	Error              int   `json:"error"`
 }
 
 // GetRateLimitStatus When you perform too many API calls in a short amount of time,

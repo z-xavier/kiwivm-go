@@ -3,7 +3,7 @@ package kiwivm
 import "context"
 
 type Backup struct {
-	Size      int    `json:"size"`
+	Size      int64  `json:"size"`
 	OS        string `json:"os"`
 	MD5       string `json:"md5"`
 	Timestamp int64  `json:"timestamp"`
@@ -11,8 +11,8 @@ type Backup struct {
 
 type BackupListRsp struct {
 	// Array of backups (backup_token, size, os, md5, timestamp).
-	Backups map[string]Backup `json:"backups"`
-	Error   int               `json:"error"`
+	Backups map[string]*Backup `json:"backups"`
+	Error   int                `json:"error"`
 }
 
 // BackupList Get list of automatic backups.

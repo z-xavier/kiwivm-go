@@ -23,9 +23,9 @@ type GetServiceInfoRsp struct {
 	// Disk quota (bytes)
 	PlanDisk int64 `json:"plan_disk"`
 	// RAM (bytes)
-	PlanRam int `json:"plan_ram"`
+	PlanRam int64 `json:"plan_ram"`
 	// SWAP (bytes)
-	PlanSwap int `json:"plan_swap"`
+	PlanSwap int64 `json:"plan_swap"`
 	// Operating system
 	OS string `json:"os"`
 	// Primary e-mail address of the account
@@ -55,7 +55,7 @@ type GetServiceInfoRsp struct {
 	// Array of ISO images available for use
 	AvailableISOs []string `json:"available_isos"`
 	// Maximum number of IPv6 addresses allowed by plan
-	PlanMaxIPV6s int `json:"plan_max_ipv6s"`
+	PlanMaxIPV6s int64 `json:"plan_max_ipv6s"`
 	// Whether or not rDNS records can be set via API
 	RDNSAPIAvailable bool `json:"rdns_api_available"`
 	// Whether or not Private Network features are available on this plan
@@ -69,11 +69,11 @@ type GetServiceInfoRsp struct {
 	// Whether there is an active policy violation that needs attention (see getPolicyViolations)
 	PolicyViolation bool `json:"policy_violation"`
 	// Number of times service was suspended in current calendar year
-	SuspensionCount int `json:"suspension_count"`
+	SuspensionCount int64 `json:"suspension_count"`
 	// Total abuse points accumulated in current calendar year
-	TotalAbusePoints int `json:"total_abuse_points"`
+	TotalAbusePoints int64 `json:"total_abuse_points"`
 	// Maximum abuse points allowed by plan in a calendar year
-	MaxAbusePoints int    `json:"max_abuse_points"`
+	MaxAbusePoints int64  `json:"max_abuse_points"`
 	NodeLocationId string `json:"node_location_id"`
 	NodeDatacenter string `json:"node_datacenter"`
 	Error          int    `json:"error"`
@@ -113,14 +113,14 @@ type GetLiveServiceInfoRsp struct {
 	// Raw load average string
 	LoadAverage string `json:"load_average"`
 	// Amount of available RAM in KB
-	MemAvailableKB int `json:"mem_available_kb"`
+	MemAvailableKB int64 `json:"mem_available_kb"`
 	// Total amount of Swap in KB
-	SwapTotalKB int `json:"swap_total_kb"`
+	SwapTotalKB int64 `json:"swap_total_kb"`
 	// Amount of available Swap in KB
-	SwapAvailableKB int `json:"swap_available_kb"`
+	SwapAvailableKB int64 `json:"swap_available_kb"`
 	// base64 encoded png screenshot of the VGA console
 	ScreenDumpPngBase64 string `json:"screendump_png_base64"`
-	VeID                int    `json:"veid"`
+	VeID                int64  `json:"veid"`
 
 	// both
 	// 0 = CPU is not throttled, 1 = CPU is throttled due to high usage.

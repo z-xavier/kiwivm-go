@@ -27,7 +27,7 @@ type Snapshot struct {
 	Md5             string `json:"md5"`
 	Sticky          bool   `json:"sticky"`
 	Uncompressed    int64  `json:"uncompressed"`
-	PurgesIn        int    `json:"purgesIn"`
+	PurgesIn        int64  `json:"purgesIn"`
 	DownloadLink    string `json:"downloadLink"`
 	DownloadLinkSSL string `json:"downloadLinkSSL"`
 }

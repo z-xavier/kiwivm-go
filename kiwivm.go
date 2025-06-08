@@ -13,10 +13,10 @@ type BandwidthAlert struct {
 }
 
 type EmailPreferences struct {
-	BandwidthAlerts       map[string]BandwidthAlert `json:"Bandwidth Alerts"`
-	SecurityNotifications map[string]BandwidthAlert `json:"Security Notifications"`
-	SystemNotifications   map[string]BandwidthAlert `json:"System Notifications"`
-	Miscellaneous         map[string]BandwidthAlert `json:"Miscellaneous"`
+	BandwidthAlerts       map[string]*BandwidthAlert `json:"Bandwidth Alerts"`
+	SecurityNotifications map[string]*BandwidthAlert `json:"Security Notifications"`
+	SystemNotifications   map[string]*BandwidthAlert `json:"System Notifications"`
+	Miscellaneous         map[string]*BandwidthAlert `json:"Miscellaneous"`
 }
 
 type KiwiVMGetNotificationPreferencesRsp struct {

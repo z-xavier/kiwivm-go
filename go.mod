@@ -1,4 +1,4 @@
-module github.com/ZhangXavier/kiwivm-go
+module github.com/z-xavier/kiwivm-go
 
 go 1.21
 
